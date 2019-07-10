@@ -9,6 +9,7 @@ import 'package:power_vendas_mobile/src/ui/rotas.dart';
 import 'package:power_vendas_mobile/src/ui/relatorios.dart';
 import 'package:power_vendas_mobile/src/ui/movimentacoes.dart';
 import 'package:power_vendas_mobile/src/ui/configuracoes.dart';
+import 'fab.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Widget _widgetAtual = Home();
+  Widget _fab = null;
 
   Future<bool> customPop(BuildContext context) {
     if (!bloc.goBack()) {
@@ -45,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget widgetBloc;
+    Widget fab;
 
     bloc.FragmentoAtivo.listen((value) {
       switch (value) {
@@ -53,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 1:
           widgetBloc = Clientes();
+          fab = FancyFab();
           break;
         case 2:
           widgetBloc = Pedidos();
@@ -77,9 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         default:
           widgetBloc = Home();
+          fab = null;
       }
       setState(() {
         _widgetAtual = widgetBloc;
+        _fab = fab;
       });
     });
 
@@ -180,6 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         body: _widgetAtual,
+        floatingActionButton: _fab,
       ),
     );
   }
