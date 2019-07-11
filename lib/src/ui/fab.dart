@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:power_vendas_mobile/src/bloc/navigation_bloc.dart';
+import 'cadastro_cliente.dart';
 
 class FancyFab extends StatefulWidget {
   final Function() onPressed;
@@ -74,7 +76,10 @@ class _FancyFabState extends State<FancyFab>
   Widget add() {
     return Container(
       child: FloatingActionButton(
-        onPressed: null,
+        onPressed: (){
+          bloc.Navegar(CadastroCliente().id);
+
+        },
         tooltip: 'Add',
         child: Icon(Icons.add),
       ),

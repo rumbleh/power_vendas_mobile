@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:power_vendas_mobile/src/bloc/navigation_bloc.dart';
+import 'cadastro_cliente.dart';
 
 class Clientes extends StatefulWidget {
 

@@ -9,6 +9,7 @@ import 'package:power_vendas_mobile/src/ui/rotas.dart';
 import 'package:power_vendas_mobile/src/ui/relatorios.dart';
 import 'package:power_vendas_mobile/src/ui/movimentacoes.dart';
 import 'package:power_vendas_mobile/src/ui/configuracoes.dart';
+import 'cadastro_cliente.dart';
 import 'fab.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -78,6 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 8:
           widgetBloc = Configuracoes();
+          break;
+        case 9:
+          widgetBloc = CadastroCliente();
           break;
         default:
           widgetBloc = Home();
